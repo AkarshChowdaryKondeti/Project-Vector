@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <style>
+        * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Top bar */
+    .top-bar {
+      background-color: #181818;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 60px;
+      font-size: 14px;
+    }
+    
+    .top-bar span {
+      margin-right: 15px;
+    }
+
+    /* Navbar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 60px;
+      background-color: white;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+
+    .logo img {
+      max-height: 50px;
+    }
+    
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 30px;
+    }
+    
+    .nav-links a {
+      text-decoration: none;
+      color: black;
+      font-weight: 500;
+      position: relative;
+    }
+    
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: #E87A2F;
+    }
+    
+    .nav-links a.active::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background-color: #E87A2F;
+    }
+
+
+    /* Footer Main Container */
+        .main-footer {
+            background-color: #000;
+            font-size: 15px;
+            color: #aeaeae;
+            font-weight: 500;
+            background-image: url(site-footer-map.jpg); /* Img background */
+            
+            color: #ccc; /* Light text color */
+            padding: 50px 0 10px; /* Padding for the top, less at the bottom */
+            position: relative;
+            font-size: 14px;
+            overflow: hidden; /* Important for containing absolute elements like the background map */
+        }
+
+        /* World Map Background Effect */
+        .main-footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            /* Using a placeholder SVG pattern for the subtle map texture */
+            
+            opacity: 0.8; /* Subtle transparency */
+            z-index: 1; /* Keep it below the content */
+        }
+
+        /* Footer Content Wrapper - To overlay the background map */
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2; /* Ensure content is above the map */
+        }
+
+        /* Grid Layout for Columns */
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* 4 equal columns */
+            gap: 40px;
+        }
+
+        .footer-column h4 {
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 0;
+            margin-bottom: 15px;
+            padding-bottom: 5px;
+            border-bottom: 3px solid #ff6600; /* Orange underline for headings */
+            display: inline-block; /* Makes the underline fit the text width */
+            line-height: 1;
+        }
+
+        /* Contact Details Styling */
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+
+        .contact-item i {
+            color: #ff6600; /* Icon color */
+            font-size: 16px;
+            margin-right: 10px;
+            margin-top: 2px;
+            width: 15px; /* Fixed width for alignment */
+            text-align: center;
+        }
+
+        .contact-item a,
+        .contact-item p {
+            color: #ccc;
+            text-decoration: none;
+            line-height: 1.4;
+            margin: 0;
+        }
+
+        /* Company Links Styling */
+        .company-links ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .company-links li {
+            margin-bottom: 8px;
+        }
+
+        .company-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .company-links a:hover {
+            color: #ff6600;
+        }
+
+        /* --- Bottom Bar (Copyright) --- */
+        .bottom-bar {
+            background-color: black;
+            color: #ccc;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+            border-top: 1px solid #333;
+        }
+
+        .bottom-bar-links a {
+            color: #ccc;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+        
+        /* Bottom Social Icons */
+        .bottom-social a {
+            color: white;
+            font-size: 16px;
+            margin-left: 8px;
+            text-decoration: none;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 992px) {
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr); /* 2 columns on tablets */
+            }
+            .bottom-bar {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+            .bottom-bar-links {
+                order: 3; /* Move links to the bottom */
+            }
+            .bottom-social {
+                order: 2;
+            }
+            .social-sidebar {
+                display: none; /* Hide fixed sidebar on small screens for better space */
+            }
+        }
+
+        @media (max-width: 576px) {
+            .footer-grid {
+                grid-template-columns: 1fr; /* 1 column on phones */
+            }
+            .footer-column h4 {
+                margin-top: 20px;
+            }
+            .bottom-bar-links a {
+                display: block;
+                margin: 5px 0;
+            }
+        }
+
+        /*About bar*/
+        .header-container {
+            background-image: url(courses-bg.jpg);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            padding: 80px 60px 100px;
+            position: relative;
+            overflow: hidden;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .breadcrumb {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        .breadcrumb a {
+            color: rgba(255, 255, 255, 0.9);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .breadcrumb a:hover {
+            color: #ffffff;
+        }
+
+        .separator {
+            margin: 0 12px;
+            opacity: 0.7;
+        }
+
+        .page-title {
+            color: #ffffff;
+            font-size: 64px;
+            font-weight: 700;
+            line-height: 1.2;
+            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        /*About content*/
+        .about-page {
+            padding: 60px 0;
+             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0 -15px;
+        }
+
+        .col-xl-12 {
+            flex: 0 0 100%;
+            max-width: 100%;
+            padding: 0 15px;
+        }
+
+        .section-title2 {
+            margin-bottom: 30px;
+        }
+
+        .section-title2.text-left {
+            text-align: left;
+        }
+
+        .section-title__title2 {
+            color: #ff6b35;
+            font-size: 42px;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 0;
+        }
+
+        .about-page p {
+            color: #666;
+            font-size: 16px;
+            line-height: 1.8;
+            margin-bottom: 24px;
+        }
+
+        .about-page p b {
+            color: #333;
+            font-weight: 600;
+        }
+
+
+    </style>
+</head>
+<body>
+    <!-- Top bar -->
+  <div class="top-bar">
+    <div>
+      <span>📧 info@vectorindia.org</span>
+      <span>📞 +91 98666 66699</span>
+    </div>
+    <div>
+      <span>Admission</span>
+      <span>Student Login</span>
+      <span>Apply Online</span>
+      <span>Quick Enquiry</span>
+      <span>Gallery</span>
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">
+      <img src="logo.png" alt="Vector Logo">
+    </div>
+    <ul class="nav-links">
+      <li><a href="index.html" >Home</a></li>
+      <li><a href="about-us.html" class="active">About Us</a></li>
+      <li><a href="#">Embedded Systems</a></li>
+      <li><a href="#">Full Stack Development</a></li>
+      <li><a href="#">Short Term Courses</a></li>
+      <li><a href="#">Corporates</a></li>
+      <li><a href="#">Workshops</a></li>
+      <li><a href="#">Placements</a></li>
+    </ul>
+  </nav>
+  <!--About Bar-->
+  <div class="header-container">
+        <div class="header-content">
+            <div class="breadcrumb">
+                <a href="#">HOME</a>
+                <span class="separator">/</span>
+                <span>ABOUT VECTOR INDIA</span>
+            </div>
+            <h1 class="page-title">About Vector India</h1>
+        </div>
+    </div>
+
+  <!--About page-->
+  <section class="about-page">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="section-title2 text-left">
+                            <h2 class="section-title__title2">Vector India: Bridging the Gap Between Industry and Aspiring  Professionals</h2>
+                        </div>
+                        
+                        <p>Vector India was established with a vision to inspire enthusiastic freshers by bridging the gap between industry requirements and enhancing their skill sets. We are pioneers in the fields of <b>Embedded Systems</b> and <b>Full Stack Development</b> training, with <b>over 20 years</b> of unparalleled competency. As India's first ISO 9001:2015 certified institute in Embedded Systems training, we have garnered several awards and accolades for our exceptional contributions.</p>
+
+                        <p>With comprehensive capabilities, unmatched experience, and extensive research, we have emerged as leaders in both <b>Embedded Systems</b> and <b>Full Stack Development</b>. We empower companies by sourcing well-trained, industry-ready professionals and support candidates by aligning their skills with industry demands, ensuring they are placed in roles best suited to their expertise.</p>
+
+                        <p>Vector India operates training centers in Hyderabad, Bangalore, and Chennai, offering comprehensive training programs with a well-integrated approach to <b>Embedded Systems</b> and <b>Full Stack Development</b>. These programs not only enhance technical knowledge but also boost students’ efficiency and confidence in these cutting-edge fields.</p>
+
+                        <p>With over 1,00,000 alumni and partnerships with 650 corporate and tech organizations, we have always upheld the values of quality, trust, and camaraderie. We continuously redefine our training programs, delivering greater value to the corporate sector by providing highly proficient workforces in <b>Embedded Systems</b> and <b>Full Stack Development</b>, organizing training for in-house personnel, and offering virtual learning led by subject matter experts.</p>
+
+                        <div class="section-title2 text-left">
+                            <h2 class="section-title__title2">Our Achievement</h2>
+                        </div>
+                        <p>Vector India has been named India’s Best Training Institute for <b>Embedded Systems</b>, a testament to our commitment to maintaining a high-quality curriculum. Similarly, our training programs for <b>Full Stack Development</b> are recognized for ensuring students gain authentic, application-oriented project experience and practical skills.</p>
+
+                        <p>Through 100% placement assistance and lateral placements, we boast a commendable and consistently improving placement record. Admission to Vector India’s programs in <b>Embedded Systems</b> and <b>Full Stack Development</b> is exclusively based on the Online Scholarship Admission Test.</p>
+
+                        <p>We are on a mission to transform lives, build an empire of skilled professionals, and leave a lasting legacy in the fields of <b>Embedded Systems</b> and <b>Full Stack Development</b>.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+  <!--Footer-->
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-grid">
+
+                <div class="footer-column">
+                    <h4>Hyderabad</h4>
+                    <div class="contact-item">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <p>#502, Nagasuri Plaza (Bank Of India building), Behind Maithrivanam, Ameerpet, Hyderabad - 500038.</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fa-solid fa-phone"></i>
+                        <a href="tel:+919866666699">+91 98666 66699</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fa-solid fa-phone"></i>
+                        <a href="tel:+04023736669">040 23 73 6669</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fa-solid fa-envelope"></i>
+                        <a href="mailto:info@vectorindia.org">info@vectorindia.org</a>
+                    </div>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Bangalore</h4>
+                    <div class="contact-item">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <p>33/49, 27th Cross, 12th Main, Jayanagar 4th block, Bangalore - 560011.</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fa-solid fa-phone"></i>
+                        <a href="tel:+918762456789">+91 87624 56789</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fa-solid fa-phone"></i>
+                        <a href="tel:+08026546474">080 26546474</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fa-solid fa-envelope"></i>
+                        <a href="mailto:info.blr@vectorindia.org">info.blr@vectorindia.org</a>
+                    </div>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Chennai</h4>
+                    <div class="contact-item">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <p>2nd Floor, 179, 1st Main Road, Nehru Nagar, Lane Opp to Turyas Hotel, Porur, Chennai - 600096.</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fa-solid fa-phone"></i>
+                        <a href="tel:+919444222459">+91 94442 22459</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fa-solid fa-phone"></i>
+                        <a href="tel:+04424543969">044 24543969</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fa-solid fa-envelope"></i>
+                        <a href="mailto:info.chen@vectorindia.org">info.chen@vectorindia.org</a>
+                    </div>
+                </div>
+
+                <div class="footer-column company-links">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About Vector India</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Testimonials</a></li>
+                        <li><a href="#">Gallery</a></li>
+                        <li><a href="#">FAQ's</a></li>
+                        <li><a href="#">Policies</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Site Map</a></li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+    <div class="bottom-bar">
+        <div class="copyright">
+            &copy; Copyrights 2025 by Vector India
+        </div>
+        <div class="bottom-bar-links">
+            <a href="#">Terms & Conditions</a> |
+            <a href="#">Privacy Policy</a> |
+            <a href="#">Refund and Cancellation Policy</a>
+        </div>
+        <div class="bottom-social">
+            <a href="#" style="background-color: #3b5998; padding: 4px 6px;"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" style="background-color: #0077B5; padding: 4px 6px;"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" style="background-color: #000; padding: 4px 6px;"><i class="fab fa-x"></i></a>
+            <a href="#" style="background-color: #E1306C; padding: 4px 6px;"><i class="fab fa-instagram"></i></a>
+        </div>
+    </div>
+</body>
+</html>

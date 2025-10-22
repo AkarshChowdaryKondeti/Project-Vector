@@ -1,0 +1,273 @@
+
+
+css:
+        /* Footer Main Container */
+        .main-footer {
+            background-color: #000;
+            font-size: 15px;
+            color: #aeaeae;
+            font-weight: 500;
+            background-image: url(site-footer-map.jpg); /* Img background */
+            
+            color: #ccc; /* Light text color */
+            padding: 50px 0 10px; /* Padding for the top, less at the bottom */
+            position: relative;
+            font-size: 14px;
+            overflow: hidden; /* Important for containing absolute elements like the background map */
+        }
+
+        /* World Map Background Effect */
+        .main-footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            /* Using a placeholder SVG pattern for the subtle map texture */
+            
+            opacity: 0.8; /* Subtle transparency */
+            z-index: 1; /* Keep it below the content */
+        }
+
+        /* Footer Content Wrapper - To overlay the background map */
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2; /* Ensure content is above the map */
+        }
+
+        /* Grid Layout for Columns */
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* 4 equal columns */
+            gap: 40px;
+        }
+
+        .footer-column h4 {
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 0;
+            margin-bottom: 15px;
+            padding-bottom: 5px;
+            border-bottom: 3px solid #ff6600; /* Orange underline for headings */
+            display: inline-block; /* Makes the underline fit the text width */
+            line-height: 1;
+        }
+
+        /* Contact Details Styling */
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+
+        .contact-item i {
+            color: #ff6600; /* Icon color */
+            font-size: 16px;
+            margin-right: 10px;
+            margin-top: 2px;
+            width: 15px; /* Fixed width for alignment */
+            text-align: center;
+        }
+
+        .contact-item a,
+        .contact-item p {
+            color: #ccc;
+            text-decoration: none;
+            line-height: 1.4;
+            margin: 0;
+        }
+
+        /* Company Links Styling */
+        .company-links ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .company-links li {
+            margin-bottom: 8px;
+        }
+
+        .company-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .company-links a:hover {
+            color: #ff6600;
+        }
+
+        /* --- Bottom Bar (Copyright) --- */
+        .bottom-bar {
+            background-color: black;
+            color: #ccc;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 13px;
+            border-top: 1px solid #333;
+        }
+
+        .bottom-bar-links a {
+            color: #ccc;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+        
+        /* Bottom Social Icons */
+        .bottom-social a {
+            color: white;
+            font-size: 16px;
+            margin-left: 8px;
+            text-decoration: none;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 992px) {
+            .footer-grid {
+                grid-template-columns: repeat(2, 1fr); /* 2 columns on tablets */
+            }
+            .bottom-bar {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+            .bottom-bar-links {
+                order: 3; /* Move links to the bottom */
+            }
+            .bottom-social {
+                order: 2;
+            }
+            .social-sidebar {
+                display: none; /* Hide fixed sidebar on small screens for better space */
+            }
+        }
+
+        @media (max-width: 576px) {
+            .footer-grid {
+                grid-template-columns: 1fr; /* 1 column on phones */
+            }
+            .footer-column h4 {
+                margin-top: 20px;
+            }
+            .bottom-bar-links a {
+                display: block;
+                margin: 5px 0;
+            }
+        }
+    
+
+
+
+
+
+
+body:
+
+    <!--Footer-->
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-grid">
+
+                <div class="footer-column">
+                    <h4>Hyderabad</h4>
+                    <div class="contact-item">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <p>#502, Nagasuri Plaza (Bank Of India building), Behind Maithrivanam, Ameerpet, Hyderabad - 500038.</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fa-solid fa-phone"></i>
+                        <a href="tel:+919866666699">+91 98666 66699</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fa-solid fa-phone"></i>
+                        <a href="tel:+04023736669">040 23 73 6669</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fa-solid fa-envelope"></i>
+                        <a href="mailto:info@vectorindia.org">info@vectorindia.org</a>
+                    </div>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Bangalore</h4>
+                    <div class="contact-item">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <p>33/49, 27th Cross, 12th Main, Jayanagar 4th block, Bangalore - 560011.</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fa-solid fa-phone"></i>
+                        <a href="tel:+918762456789">+91 87624 56789</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fa-solid fa-phone"></i>
+                        <a href="tel:+08026546474">080 26546474</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fa-solid fa-envelope"></i>
+                        <a href="mailto:info.blr@vectorindia.org">info.blr@vectorindia.org</a>
+                    </div>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Chennai</h4>
+                    <div class="contact-item">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <p>2nd Floor, 179, 1st Main Road, Nehru Nagar, Lane Opp to Turyas Hotel, Porur, Chennai - 600096.</p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fa-solid fa-phone"></i>
+                        <a href="tel:+919444222459">+91 94442 22459</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fa-solid fa-phone"></i>
+                        <a href="tel:+04424543969">044 24543969</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fa-solid fa-envelope"></i>
+                        <a href="mailto:info.chen@vectorindia.org">info.chen@vectorindia.org</a>
+                    </div>
+                </div>
+
+                <div class="footer-column company-links">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">About Vector India</a></li>
+                        <li><a href="#">Careers</a></li>
+                        <li><a href="#">Testimonials</a></li>
+                        <li><a href="#">Gallery</a></li>
+                        <li><a href="#">FAQ's</a></li>
+                        <li><a href="#">Policies</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Site Map</a></li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+    <div class="bottom-bar">
+        <div class="copyright">
+            &copy; Copyrights 2025 by Vector India
+        </div>
+        <div class="bottom-bar-links">
+            <a href="#">Terms & Conditions</a> |
+            <a href="#">Privacy Policy</a> |
+            <a href="#">Refund and Cancellation Policy</a>
+        </div>
+        <div class="bottom-social">
+            <a href="#" style="background-color: #3b5998; padding: 4px 6px;"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" style="background-color: #0077B5; padding: 4px 6px;"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" style="background-color: #000; padding: 4px 6px;"><i class="fab fa-x"></i></a>
+            <a href="#" style="background-color: #E1306C; padding: 4px 6px;"><i class="fab fa-instagram"></i></a>
+        </div>
+    </div>

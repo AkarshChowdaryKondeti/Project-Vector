@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1400">
+  <title>Vector India - Best Embedded Systems Training</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    /* Top bar */
+    .top-bar {
+      background-color: #181818;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 8px 60px;
+      font-size: 14px;
+    }
+    
+    .top-bar span {
+      margin-right: 15px;
+    }
+
+    /* Navbar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 60px;
+      background-color: white;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 999;
+    }
+
+    .logo img {
+      max-height: 50px;
+    }
+    
+    .nav-links {
+      display: flex;
+      list-style: none;
+      gap: 30px;
+    }
+    
+    .nav-links a {
+      text-decoration: none;
+      color: black;
+      font-weight: 500;
+      position: relative;
+    }
+    
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: #E87A2F;
+    }
+    
+    .nav-links a.active::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background-color: #E87A2F;
+    }
+
+    /* Hero section */
+    .hero {
+      height: 80vh;
+      width: 100%;
+      background: url('slide1.jpg') center/cover no-repeat;
+      display: flex;
+      align-items: flex-start;
+      justify-content: flex-start;
+      padding: 50px 10%;
+      color: white;
+    }
+    
+    .hero-content h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+    
+    .hero-content p {
+      font-size: 1.2rem;
+      line-height: 1.5;
+      max-width: 500px;
+    }
+
+    /* Apply section */
+    .apply-section {
+      width: 100%;
+      height: 300px;
+      background: url('apply-now-bg.jpg') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      position: relative;
+    }
+    
+    .apply-section::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.6);
+    }
+    
+    .apply-content {
+      position: relative;
+      z-index: 2;
+    }
+    
+    .apply-content h2 {
+      font-size: 40px;
+      font-weight: 400;
+      line-height: 40px;
+      margin-bottom: 20px;
+    }
+    
+    .apply-content button {
+      background-color: #E87A2F;
+      color: white;
+      border: none;
+      padding: 12px 40px;
+      font-size: 1rem;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+    
+    .apply-content button:hover {
+      background-color: #ff8a3d;
+      transform: scale(1.05);
+    }
+
+    /* Placement section */
+    .placement-section {
+      width: 100%;
+      background-color: #ececec;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 50px;
+      padding: 70px 0 30px;
+    }
+    
+    .placement-intro {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      width: 100%;
+    }
+    
+    .placement-intro h3 {
+      width: 40%;
+      padding-left: 50px;
+      font-size: 60px;
+      line-height: 75px;
+    }
+    
+    .placement-intro img {
+      width: 40%;
+    }
+    
+    .hired-count {
+      width: 100%;
+    }
+    
+    .hired-count img {
+      width: 100%;
+      height: 100%;
+    }
+    
+    .company-logos {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .company-logos i {
+      font-size: 30px;
+      cursor: pointer;
+    }
+    
+    .placement-section button {
+      width: 300px;
+      height: 50px;
+      border-radius: 30px;
+      border: none;
+      background-color: #ff7810;
+      color: white;
+      font-size: 20px;
+      margin-bottom: 30px;
+      cursor: pointer;
+    }
+
+    /* Courses Section */
+    .courses {
+      width: 100%;
+      max-width: 1400px;
+      text-align: center;
+      margin: 0 auto;
+      padding: 100px 20px;
+    }
+
+    .course-card-text-title {
+      font-size: 36px;
+      font-weight: 700;
+      color: #212529;
+      margin-bottom: 10px;
+    }
+
+    .course-card-text p {
+      font-size: 18px;
+      color: #6c757d;
+      margin-bottom: 40px;
+    }
+
+    .course-cards-container {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .course-card {
+      background-color: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      width: 550px;
+      display: flex;
+      flex-direction: column;
+      text-align: left;
+    }
+
+    .card-content {
+      background-color: #f8f8f8;
+      padding: 40px;
+      position: relative;
+    }
+
+    .card-content::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: linear-gradient(105deg, #f8f8f8 70%, #f1f1f1 70.1%);
+      z-index: -1;
+    }
+
+    .course-icon {
+      position: absolute;
+      top: 25px;
+      right: 25px;
+      width: 60px;
+      height: 60px;
+      color: #e85d04;
+    }
+
+    .course-title {
+      color: #e85d04;
+      font-size: 24px;
+      font-weight: 600;
+      margin-bottom: 15px;
+    }
+
+    .course-description {
+      color: #555;
+      font-size: 16px;
+      line-height: 1.6;
+      max-width: 80%;
+      margin-bottom: 30px;
+    }
+
+    .course-details p {
+      margin: 8px 0;
+      color: #333;
+      font-size: 16px;
+      font-weight: 500;
+    }
+
+    .course-details .detail-value {
+      color: #666;
+      font-weight: 400;
+    }
+    
+    .course-details .course-mode {
+      color: #e85d04;
+      font-weight: 500;
+    }
+
+    .card-footer {
+      background-color: #212529;
+      display: flex;
+    }
+
+    .card-footer a {
+      color: #e9ecef;
+      text-decoration: none;
+      padding: 15px 20px;
+      font-size: 15px;
+      font-weight: 500;
+      flex-grow: 1;
+      text-align: center;
+      transition: background-color 0.3s ease;
+    }
+    
+    .card-footer a:hover {
+      background-color: #343a40;
+    }
+
+    .card-footer a:not(:last-child) {
+      border-right: 1px solid #495057;
+    }
+
+    /* Footer */
+    .main-footer {
+      background-image: url(site-footer-map.jpg);
+      color: #ccc;
+      padding: 50px 0 10px;
+      font-size: 14px;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 40px;
+    }
+
+    .footer-column h4 {
+      color: white;
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 15px;
+      padding-bottom: 5px;
+      border-bottom: 3px solid #ff6600;
+      display: inline-block;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      margin-bottom: 15px;
+    }
+
+    .contact-item i {
+      color: #ff6600;
+      font-size: 16px;
+      margin-right: 10px;
+      margin-top: 2px;
+      width: 15px;
+      text-align: center;
+    }
+
+    .contact-item a,
+    .contact-item p {
+      color: #ccc;
+      text-decoration: none;
+      line-height: 1.4;
+    }
+
+    .company-links ul {
+      list-style: none;
+    }
+
+    .company-links li {
+      margin-bottom: 8px;
+    }
+
+    .company-links a {
+      color: #ccc;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .company-links a:hover {
+      color: #ff6600;
+    }
+
+    /* Bottom Bar */
+    .bottom-bar {
+      background-color: #000;
+      color: #ccc;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13px;
+      border-top: 1px solid #333;
+    }
+
+    .bottom-bar-links a {
+      color: #ccc;
+      text-decoration: none;
+      margin: 0 15px;
+    }
+    
+    .bottom-social a {
+      color: white;
+      font-size: 16px;
+      margin-left: 8px;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top bar -->
+  <div class="top-bar">
+    <div>
+      <span>📧 info@vectorindia.org</span>
+      <span>📞 +91 98666 66699</span>
+    </div>
+    <div>
+      <span>Admission</span>
+      <span>Student Login</span>
+      <span>Apply Online</span>
+      <span>Quick Enquiry</span>
+      <span>Gallery</span>
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">
+      <img src="logo.png" alt="Vector Logo">
+    </div>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="about-us.html">About Us</a></li>
+      <li><a href="#">Embedded Systems</a></li>
+      <li><a href="#">Full Stack Development</a></li>
+      <li><a href="#">Short Term Courses</a></li>
+      <li><a href="#">Corporates</a></li>
+      <li><a href="#">Workshops</a></li>
+      <li><a href="#">Placements</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1>India's Leading<br>Embedded Systems<br>Training Institute</h1>
+      <p>Making students industry-ready with application-oriented training program!</p>
+    </div>
+  </section>
+
+  <!-- Apply Section -->
+  <section class="apply-section">
+    <div class="apply-content">
+      <h2>Click Here to Apply for Vector Online Scholarship Test</h2>
+      <a href="Reg.html"><button>Apply Now</button></a>
+    </div>
+  </section>
+
+  <!-- Placement Section -->
+  <section class="placement-section">
+    <div class="placement-intro">
+      <h3>Unbeatable placement records that most institutes only dream of!</h3>
+      <img src="about-image.jpg" alt="About Vector">
+    </div>
+    <div class="hired-count">
+      <img src="Hired count.png" alt="Hired Count">
+    </div>
+    <div class="company-logos">
+      <i class="fa-solid fa-arrow-left"></i>
+      <img src="cmpy1.png" alt="Company 1">
+      <img src="cmpy2.png" alt="Company 2">
+      <img src="cmpy3.png" alt="Company 3">
+      <i class="fa-solid fa-arrow-right"></i>
+    </div>
+    <button onclick="location.href='about-us.html'">More About Vector India</button>
+  </section>
+
+  <!-- Courses Section -->
+  <section class="courses">
+    <div class="course-card-text">
+      <h2 class="course-card-text-title">Courses we offer</h2>
+      <p>Access to long & short term courses we offer to enhance your technical knowledge</p>
+    </div>
+    <div class="course-cards-container">
+      <!-- Course Card 1 -->
+      <div class="course-card">
+        <div class="card-content">
+          <div class="course-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12.003 2.5c-1.33.003-2.64.27-3.86.79l-.801.34v.002a9.5 9.5 0 00-4.639 9.367c.003.34.02.68.04.99a9.5 9.5 0 005.46 8.01h.001l.8.34c2.44.98 5.16.98 7.6 0l.8-.34a9.5 9.5 0 005.5-9c.02-.3.04-.65.04-1a9.5 9.5 0 00-6.44-8.98l-.8-.34c-1.22-.52-2.53-.78-3.86-.79zm-1.02 3.9h2.04v2.04h-2.04V6.4zm-3.64 2.38h2.04v2.04H7.34v-2.04zm7.28 0h2.04v2.04h-2.04v-2.04zm-3.64 1.64c1.13 0 2.04.9 2.04 2.04s-.9 2.04-2.04 2.04-2.04-.9-2.04-2.04.9-2.04 2.04-2.04zm-3.64 1.98h2.04v2.04H7.34v-2.04zm7.28 0h2.04v2.04h-2.04v-2.04zm-4.66 3.64h2.04v2.04h-2.04v-2.04z" />
+            </svg>
+          </div>
+          <h2 class="course-title">Embedded Systems Development</h2>
+          <p class="course-description">
+            Embedded systems are evolving at breakneck speed, driving advances in technology and fuelled by lower costs of implementing hardware and software components.
+          </p>
+          <div class="course-details">
+            <p>Duration: <span class="detail-value">6 months</span></p>
+            <p>Course Mode: <span class="detail-value course-mode">Offline</span></p>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a href="Reg.html">Apply Now</a>
+          <a href="#">Know More</a>
+          <a href="#">Brochure</a>
+        </div>
+      </div>
+
+      <!-- Course Card 2 -->
+      <div class="course-card">
+        <div class="card-content">
+          <div class="course-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12.003 2.5c-1.33.003-2.64.27-3.86.79l-.801.34v.002a9.5 9.5 0 00-4.639 9.367c.003.34.02.68.04.99a9.5 9.5 0 005.46 8.01h.001l.8.34c2.44.98 5.16.98 7.6 0l.8-.34a9.5 9.5 0 005.5-9c.02-.3.04-.65.04-1a9.5 9.5 0 00-6.44-8.98l-.8-.34c-1.22-.52-2.53-.78-3.86-.79zm-1.02 3.9h2.04v2.04h-2.04V6.4zm-3.64 2.38h2.04v2.04H7.34v-2.04zm7.28 0h2.04v2.04h-2.04v-2.04zm-3.64 1.64c1.13 0 2.04.9 2.04 2.04s-.9 2.04-2.04 2.04-2.04-.9-2.04-2.04.9-2.04 2.04-2.04zm-3.64 1.98h2.04v2.04H7.34v-2.04zm7.28 0h2.04v2.04h-2.04v-2.04zm-4.66 3.64h2.04v2.04h-2.04v-2.04z" />
+            </svg>
+          </div>
+          <h2 class="course-title">VLSI Design & Verification</h2>
+          <p class="course-description">
+            Explore the intricate world of Very Large Scale Integration, from digital design fundamentals to advanced verification methodologies and cutting-edge tools.
+          </p>
+          <div class="course-details">
+            <p>Duration: <span class="detail-value">8 months</span></p>
+            <p>Course Mode: <span class="detail-value course-mode">Online</span></p>
+          </div>
+        </div>
+        <div class="card-footer">
+          <a href="Reg.html">Apply Now</a>
+          <a href="#">Know More</a>
+          <a href="#">Brochure</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="main-footer">
+    <div class="footer-content">
+      <div class="footer-grid">
+        <div class="footer-column">
+          <h4>Hyderabad</h4>
+          <div class="contact-item">
+            <i class="fa-solid fa-location-dot"></i>
+            <p>#502, Nagasuri Plaza (Bank Of India building), Behind Maithrivanam, Ameerpet, Hyderabad - 500038.</p>
+          </div>
+          <div class="contact-item">
+            <i class="fa-solid fa-phone"></i>
+            <a href="tel:+919866666699">+91 98666 66699</a>
+          </div>
+          <div class="contact-item">
+            <i class="fa-solid fa-phone"></i>
+            <a href="tel:+04023736669">040 23 73 6669</a>
+          </div>
+          <div class="contact-item">
+            <i class="fa-solid fa-envelope"></i>
+            <a href="mailto:info@vectorindia.org">info@vectorindia.org</a>
+          </div>
+        </div>
+
+        <div class="footer-column">
+          <h4>Bangalore</h4>
+          <div class="contact-item">
+            <i class="fa-solid fa-location-dot"></i>
+            <p>33/49, 27th Cross, 12th Main, Jayanagar 4th block, Bangalore - 560011.</p>
+          </div>
+          <div class="contact-item">
+            <i class="fa-solid fa-phone"></i>
+            <a href="tel:+918762456789">+91 87624 56789</a>
+          </div>
+          <div class="contact-item">
+            <i class="fa-solid fa-phone"></i>
+            <a href="tel:+08026546474">080 26546474</a>
+          </div>
+          <div class="contact-item">
+            <i class="fa-solid fa-envelope"></i>
+            <a href="mailto:info.blr@vectorindia.org">info.blr@vectorindia.org</a>
+          </div>
+        </div>
+
+        <div class="footer-column">
+          <h4>Chennai</h4>
+          <div class="contact-item">
+            <i class="fa-solid fa-location-dot"></i>
+            <p>2nd Floor, 179, 1st Main Road, Nehru Nagar, Lane Opp to Turyas Hotel, Porur, Chennai - 600096.</p>
+          </div>
+          <div class="contact-item">
+            <i class="fa-solid fa-phone"></i>
+            <a href="tel:+919444222459">+91 94442 22459</a>
+          </div>
+          <div class="contact-item">
+            <i class="fa-solid fa-phone"></i>
+            <a href="tel:+04424543969">044 24543969</a>
+          </div>
+          <div class="contact-item">
+            <i class="fa-solid fa-envelope"></i>
+            <a href="mailto:info.chen@vectorindia.org">info.chen@vectorindia.org</a>
+          </div>
+        </div>
+
+        <div class="footer-column company-links">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#">About Vector India</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Testimonials</a></li>
+            <li><a href="#">Gallery</a></li>
+            <li><a href="#">FAQ's</a></li>
+            <li><a href="#">Policies</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Site Map</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bottom Bar -->
+  <div class="bottom-bar">
+    <div class="copyright">
+      &copy; Copyrights 2025 by Vector India
+    </div>
+    <div class="bottom-bar-links">
+      <a href="#">Terms & Conditions</a> |
+      <a href="#">Privacy Policy</a> |
+      <a href="#">Refund and Cancellation Policy</a>
+    </div>
+    <div class="bottom-social">
+      <a href="#" style="background-color: #3b5998; padding: 4px 6px;"><i class="fab fa-facebook-f"></i></a>
+      <a href="#" style="background-color: #0077B5; padding: 4px 6px;"><i class="fab fa-linkedin-in"></i></a>
+      <a href="#" style="background-color: #000; padding: 4px 6px;"><i class="fab fa-x"></i></a>
+      <a href="#" style="background-color: #E1306C; padding: 4px 6px;"><i class="fab fa-instagram"></i></a>
+    </div>
+  </div>
+
+</body>
+</html>
