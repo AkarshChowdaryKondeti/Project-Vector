@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Full Stack Development</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <style>
-        * {
+</head>
+<style>
+    * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
@@ -73,6 +74,108 @@
       background-color: #E87A2F;
     }
 
+    /*Info bar*/
+    .info-bar {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      background-color: #e76f22;
+      color: white;
+      text-align: left;
+      padding: 20px 0;
+    }
+
+    .info-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-right: 1px solid rgba(255, 255, 255, 0.4);
+      padding: 0 20px;
+    }
+
+    .info-item:last-child {
+      border-right: none;
+    }
+
+    .info-item i {
+      font-size: 32px;
+      margin-right: 15px;
+    }
+
+    .info-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .info-text h4 {
+      margin: 0;
+      font-size: 16px;
+      font-weight: normal;
+    }
+
+    .info-text p,
+    .info-text a {
+      margin: 4px 0 0;
+      font-size: 16px;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .info-text a:hover {
+      text-decoration: underline;
+    }
+
+    /*Main Section*/
+    .hero {
+      height: 100vh;
+      width: 100%;
+      background: url("fullstack-development-title-image.jpg") no-repeat center center/cover; /* Replace with your image */
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      color: white;
+      position: relative;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.5); /* dark overlay */
+    }
+
+    .content {
+      position: relative;
+      z-index: 2;
+      max-width: 600px;
+      padding: 80px;
+    }
+
+    .content h1 {
+      font-size: 3rem;
+      line-height: 1.2;
+      font-weight: 700;
+    }
+
+    .content h1 span {
+      display: block;
+      font-weight: 600;
+    }
+
+    .underline {
+      width: 50px;
+      height: 3px;
+      background: orange;
+      margin: 15px 0;
+    }
+
+    .content p {
+      font-size: 1.1rem;
+      color: #ddd;
+      line-height: 1.6;
+    }
 
     /* Footer Main Container */
         .main-footer {
@@ -201,147 +304,8 @@
             margin-left: 8px;
             text-decoration: none;
         }
-
-        /* Responsive Adjustments */
-        @media (max-width: 992px) {
-            .footer-grid {
-                grid-template-columns: repeat(2, 1fr); /* 2 columns on tablets */
-            }
-            .bottom-bar {
-                flex-direction: column;
-                text-align: center;
-                gap: 10px;
-            }
-            .bottom-bar-links {
-                order: 3; /* Move links to the bottom */
-            }
-            .bottom-social {
-                order: 2;
-            }
-            .social-sidebar {
-                display: none; /* Hide fixed sidebar on small screens for better space */
-            }
-        }
-
-        @media (max-width: 576px) {
-            .footer-grid {
-                grid-template-columns: 1fr; /* 1 column on phones */
-            }
-            .footer-column h4 {
-                margin-top: 20px;
-            }
-            .bottom-bar-links a {
-                display: block;
-                margin: 5px 0;
-            }
-        }
-
-        /*About bar*/
-        .header-container {
-            background-image: url(courses-bg.jpg);
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            padding: 80px 60px 100px;
-            position: relative;
-            overflow: hidden;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-        }
-
-        .header-content {
-            position: relative;
-            z-index: 1;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .breadcrumb {
-            color: rgba(255, 255, 255, 0.9);
-            font-size: 14px;
-            font-weight: 500;
-            margin-bottom: 20px;
-            letter-spacing: 1px;
-        }
-
-        .breadcrumb a {
-            color: rgba(255, 255, 255, 0.9);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .breadcrumb a:hover {
-            color: #ffffff;
-        }
-
-        .separator {
-            margin: 0 12px;
-            opacity: 0.7;
-        }
-
-        .page-title {
-            color: #ffffff;
-            font-size: 64px;
-            font-weight: 700;
-            line-height: 1.2;
-            text-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        /*About content*/
-        .about-page {
-            padding: 60px 0;
-             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background-color: #f5f5f5;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 15px;
-        }
-
-        .row {
-            display: flex;
-            flex-wrap: wrap;
-            margin: 0 -15px;
-        }
-
-        .col-xl-12 {
-            flex: 0 0 100%;
-            max-width: 100%;
-            padding: 0 15px;
-        }
-
-        .section-title2 {
-            margin-bottom: 30px;
-        }
-
-        .section-title2.text-left {
-            text-align: left;
-        }
-
-        .section-title__title2 {
-            color: #ff6b35;
-            font-size: 42px;
-            font-weight: 700;
-            line-height: 1.3;
-            margin-bottom: 0;
-        }
-
-        .about-page p {
-            color: #666;
-            font-size: 16px;
-            line-height: 1.8;
-            margin-bottom: 24px;
-        }
-
-        .about-page p b {
-            color: #333;
-            font-weight: 600;
-        }
-
-
-    </style>
-</head>
+    
+</style>
 <body>
     <!-- Top bar -->
   <div class="top-bar">
@@ -352,7 +316,7 @@
     <div>
       <span>Admission</span>
       <span>Student Login</span>
-      <span>Apply Online</span>
+      <a href="Reg.html"><span>Apply Online</span></a>
       <span>Quick Enquiry</span>
       <span>Gallery</span>
     </div>
@@ -361,11 +325,11 @@
   <!-- Navbar -->
   <nav class="navbar">
     <div class="logo">
-      <img src="logo.png" alt="Vector Logo">
+      <a href="index.html" class="active"><img src="logo.png" alt="Vector Logo"></a>
     </div>
     <ul class="nav-links">
-      <li><a href="index.html" >Home</a></li>
-      <li><a href="about-us.html" class="active">About Us</a></li>
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="about-us.html">About Us</a></li>
       <li><a href="fullstack.html">Embedded Systems</a></li>
       <li><a href="fullstack.html">Full Stack Development</a></li>
       <li><a href="#">Short Term Courses</a></li>
@@ -374,47 +338,55 @@
       <li><a href="#">Placements</a></li>
     </ul>
   </nav>
-  <!--About Bar-->
-  <div class="header-container">
-        <div class="header-content">
-            <div class="breadcrumb">
-                <a href="#">HOME</a>
-                <span class="separator">/</span>
-                <span>ABOUT VECTOR INDIA</span>
-            </div>
-            <h1 class="page-title">About Vector India</h1>
-        </div>
+
+  <!--Info bar-->
+  <section>
+    <div class="info-bar">
+    <div class="info-item">
+      <i class="fas fa-user-graduate"></i>
+      <div class="info-text">
+        <h4>Eligibility</h4>
+        <p>BE / B. Tech / ME / M. Tech</p>
+      </div>
     </div>
 
-  <!--About page-->
-  <section class="about-page">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xl-12">
-                        <div class="section-title2 text-left">
-                            <h2 class="section-title__title2">Vector India: Bridging the Gap Between Industry and Aspiring  Professionals</h2>
-                        </div>
-                        
-                        <p>Vector India was established with a vision to inspire enthusiastic freshers by bridging the gap between industry requirements and enhancing their skill sets. We are pioneers in the fields of <b>Embedded Systems</b> and <b>Full Stack Development</b> training, with <b>over 20 years</b> of unparalleled competency. As India's first ISO 9001:2015 certified institute in Embedded Systems training, we have garnered several awards and accolades for our exceptional contributions.</p>
+    <div class="info-item">
+      <i class="fas fa-sync-alt"></i>
+      <div class="info-text">
+        <h4>Duration</h4>
+        <p>6 Months</p>
+      </div>
+    </div>
 
-                        <p>With comprehensive capabilities, unmatched experience, and extensive research, we have emerged as leaders in both <b>Embedded Systems</b> and <b>Full Stack Development</b>. We empower companies by sourcing well-trained, industry-ready professionals and support candidates by aligning their skills with industry demands, ensuring they are placed in roles best suited to their expertise.</p>
+    <div class="info-item">
+      <i class="fas fa-clipboard-list"></i>
+      <div class="info-text">
+        <a href="Reg.html">Apply Now</a>
+      </div>
+    </div>
 
-                        <p>Vector India operates training centers in Hyderabad, Bangalore, and Chennai, offering comprehensive training programs with a well-integrated approach to <b>Embedded Systems</b> and <b>Full Stack Development</b>. These programs not only enhance technical knowledge but also boost students’ efficiency and confidence in these cutting-edge fields.</p>
+    <div class="info-item">
+      <i class="fas fa-file-alt"></i>
+      <div class="info-text">
+        <a href="#">Download Brochure</a>
+      </div>
+    </div>
+  </div>
+  </section>
 
-                        <p>With over 1,00,000 alumni and partnerships with 650 corporate and tech organizations, we have always upheld the values of quality, trust, and camaraderie. We continuously redefine our training programs, delivering greater value to the corporate sector by providing highly proficient workforces in <b>Embedded Systems</b> and <b>Full Stack Development</b>, organizing training for in-house personnel, and offering virtual learning led by subject matter experts.</p>
+  <!--Main Section-->
+  <section class="hero">
+    <div class="overlay"></div>
+    <div class="content">
+      <h1>Full Stack Development<br><span>(MERN Stack)</span></h1>
+      <div class="underline"></div>
+      <p>Boost your career with hands-on experience<br>in all facets of development</p>
+    </div>
+  </section>
+  <section>
+    <img src="FullStack-Details.png" alt="fullStack Graph" height="100%" width="100%"/>
+  </section>
 
-                        <div class="section-title2 text-left">
-                            <h2 class="section-title__title2">Our Achievement</h2>
-                        </div>
-                        <p>Vector India has been named India’s Best Training Institute for <b>Embedded Systems</b>, a testament to our commitment to maintaining a high-quality curriculum. Similarly, our training programs for <b>Full Stack Development</b> are recognized for ensuring students gain authentic, application-oriented project experience and practical skills.</p>
-
-                        <p>Through 100% placement assistance and lateral placements, we boast a commendable and consistently improving placement record. Admission to Vector India’s programs in <b>Embedded Systems</b> and <b>Full Stack Development</b> is exclusively based on the Online Scholarship Admission Test.</p>
-
-                        <p>We are on a mission to transform lives, build an empire of skilled professionals, and leave a lasting legacy in the fields of <b>Embedded Systems</b> and <b>Full Stack Development</b>.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
   <!-- Footer -->
   <footer class="main-footer">
     <div class="footer-content">
@@ -514,5 +486,6 @@
       <a href="http://www.instagram.com/vectorindiainstitute?utm_source=google&utm_medium=cpc&utm_campaign=23061088075&utm_term=vector+india+org&utm_content=775997223080&utm_adgroup=189052889907&utm_device=c&utm_matchtype=e&utm_location=" style="background-color: #E1306C; padding: 4px 6px;"><i class="fab fa-instagram"></i></a>
     </div>
   </div>
+
 </body>
 </html>
